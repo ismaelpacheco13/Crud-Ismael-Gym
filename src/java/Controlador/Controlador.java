@@ -50,6 +50,7 @@ public class Controlador extends HttpServlet {
           throws ServletException, IOException {
     String acceso = "";
     String action = request.getParameter("accion");
+    
     if (action.equalsIgnoreCase("listar")) {
       acceso = listar;
     } else if (action.equals("agregar")) {
