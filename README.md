@@ -13,6 +13,7 @@ Para acceder al admin: Usuario = admin ; Contraseña = 123456
 Para acceder al usuario normal: Usuario = ismael ; Contraseña = ismael13
 
 > Acceso No Admin
+
 En el caso de que iniciemos sesión con el usuario normal "ismael" nos aparecerá la siguiente confirmación.
 
 <img src="imagenesGitHub/accesoNoAdmin.png" alt="Acceso No Admin Ismael Gym's">
@@ -24,6 +25,7 @@ Tras pulsar en aceptar nos llevará a la vista para no admins de la aplicación.
 Dentro de esta vista podremos ver una lista de todos los gimnasios disponibles de la cadena de gimnasios ficticia "Ismael Gym's" y también dispondremos de un botón para cerrar sesión en la parte superior.
 
 > Acceso Admin
+
 En caso de que iniciemos sesión con el usuario admin "admin" nos aparecerá la siguiente confirmación.
 
 <img src="imagenesGitHub/accesoAdmin.png" alt="Acceso Admin Ismael Gym's">
