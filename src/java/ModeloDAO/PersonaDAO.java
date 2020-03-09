@@ -18,7 +18,7 @@ public class PersonaDAO implements CRUD {
   @Override
   public List listar() {
     ArrayList<Persona> lista = new ArrayList<>();
-    String sql="select * from persona";
+    String sql="select * from persona t1 join gimnasio t2 on (t1.GimPre=t2.CodGim);";
     try {
       con = cn.getConnection();
       ps = con.prepareStatement(sql);
@@ -28,6 +28,7 @@ public class PersonaDAO implements CRUD {
         per.setId(rs.getInt("Id"));
         per.setDni(rs.getString("DNI"));
         per.setNombre(rs.getString("Nombres"));
+        per.setGimPreString(rs.getString("NomGim"));
         lista.add(per);
       }
     } catch (Exception e) {
@@ -46,6 +47,8 @@ public class PersonaDAO implements CRUD {
         p.setId(rs.getInt("Id"));
         p.setDni(rs.getString("DNI"));
         p.setNombre(rs.getString("Nombres"));
+        p.setGimPre(rs.getInt("GimPre"));
+        p.setGimPreString(rs.getString("NomGim"));
       }
     } catch (Exception e) {
     }

@@ -5,6 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="estilo/style.css">
         <title>Crud Ismael Gym's</title>
     </head>
     <body style="background-image: url(imagenes/fondo.jpg);">
@@ -13,30 +14,23 @@
           <img src="imagenes/logoIsmaelMod.png" style="width: 150px; height: 52.65px;" alt="">
         </nav>
       </div>
-      <div class="container">
-        <div class="row"></div>
-        <div class="row text-white">
-          <div class="row col m3"></div>
-          <div class="col m6 card-panel grey lighten-5">
-            <h5 class="center">Control de acceso</h5>
-            <form method="post" action="vistas/acceso.jsp">
-              <div class="input-field">
-                <i class="material-icons prefix">account_circle</i>
-                <input type="text" name="usuario" id="usuario" required>
-                <label for="usuario">Usuario</label>
-              </div>
-              <div class="input-field">
-                <i class="material-icons prefix">lock</i>
-                <input type="password" name="clave" id="clave" required>
-                <label for="clave">Contraseña</label>
-              </div>
-              <p class="center"><button class="btn waves-effect waves-light center" type="submit" name="aceptar">
-                  Aceptar
-                  <i class="material-icons">check_circle</i>
-                </button></p>
-              <br>
-            </form>
+      
+      <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="imagenes/logoIsmaelMod.png" id="icon" alt="User Icon" />
           </div>
+
+          <!-- Login Form -->
+          <form method="post" action="vistas/acceso.jsp">
+            <input type="text" id="login" class="fadeIn second" name="usuario" placeholder="Nombre de usuario">
+            <input type="text" id="password" class="fadeIn third" name="clave" placeholder="Contraseña">
+            <input type="submit" name="aceptar" class="fadeIn fourth" value="Iniciar sesión">
+          </form>
+
         </div>
       </div>
     <!-- Optional JavaScript -->

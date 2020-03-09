@@ -41,7 +41,7 @@
                     <div class="form-group">
                       <label for="GimnasioPreferido">Gimnasio Preferido</label>
                       <select class="form-control" id="GimnasioPreferido" name="intGimPre">
-                        <option value="<-1>">Selecciona un gimnasio</option>
+                        <option value="<%= p.getGimPre()%>">Mantener el mismo</option>
                         <% 
                         Connection con;
                         try {

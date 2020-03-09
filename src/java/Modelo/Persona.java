@@ -6,16 +6,18 @@ public class Persona {
   String dni;
   String nombre;
   int gimPre;
+  String gimPreString;
   
   public Persona() {
     
   }
 
-  public Persona(int id, String dni, String nombre, int gimPre) {
+  public Persona(int id, String dni, String nombre, int gimPre, String gimPreString) {
     this.id = id;
     this.dni = dni;
     this.nombre = nombre;
     this.gimPre = gimPre;
+    this.gimPreString = gimPreString;
   }
 
   public int getId() {
@@ -48,6 +50,14 @@ public class Persona {
 
   public void setGimPre(int gimPre) {
     this.gimPre = gimPre;
+  }
+
+  public String getGimPreString() {
+    return gimPreString;
+  }
+
+  public void setGimPreString(String gimPreString) {
+    this.gimPreString = gimPreString;
   }
   
 }

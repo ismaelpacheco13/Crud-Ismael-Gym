@@ -1,7 +1,9 @@
 
 package Controlador;
 
+import Modelo.Gimnasio;
 import Modelo.Persona;
+import ModeloDAO.GimnasioDAO;
 import ModeloDAO.PersonaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,11 +16,17 @@ import javax.servlet.http.HttpServletResponse;
 public class Controlador extends HttpServlet {
   
   String listar = "vistas/listar.jsp";
+  String listarGimnasio = "vistas/listarGimnasio.jsp";
+  String listarGimnasioAdmin = "vistas/listarGimnasioAdmin.jsp";
   String agregar = "vistas/agregar.jsp";
+  String agregarGimnasio = "vistas/agregarGimnasio.jsp";
   String editar = "vistas/editar.jsp";
+  String editarGimnasio = "vistas/editarGimnasio.jsp";
   int id;
   Persona p = new Persona();
   PersonaDAO dao = new PersonaDAO();
+  Gimnasio g = new Gimnasio();
+  GimnasioDAO daoGim = new GimnasioDAO();
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
@@ -53,8 +61,14 @@ public class Controlador extends HttpServlet {
     
     if (action.equalsIgnoreCase("listar")) {
       acceso = listar;
+    } else if (action.equals("listarGimnasio")) {
+      acceso = listarGimnasio;
+    } else if (action.equals("listarGimnasioAdmin")) {
+      acceso = listarGimnasioAdmin;
     } else if (action.equals("agregar")) {
       acceso = agregar;
+    } else if (action.equals("agregarGimnasio")) {
+      acceso = agregarGimnasio;
     } else if (action.equals("Agregar")) {
       String dni = request.getParameter("txtDni");
       String nombre = request.getParameter("txtNom");
@@ -64,9 +78,23 @@ public class Controlador extends HttpServlet {
       p.setGimPre(gimPre);
       dao.agregar(p);
       acceso = listar;
+    } else if (action.equals("Agregar Gimnasio")) {
+      String nomGim = request.getParameter("txtNomGim");
+      String dirGim = request.getParameter("txtDirGim");
+      String horGim = request.getParameter("txtHorGim");
+      String claGim = request.getParameter("txtClaGim");
+      g.setNomGim(nomGim);
+      g.setDirGim(dirGim);
+      g.setHorGim(horGim);
+      g.setClaGim(claGim);
+      daoGim.agregar(g);
+      acceso = listarGimnasioAdmin;
     } else if (action.equalsIgnoreCase("editar")) {
       request.setAttribute("idper", request.getParameter("id"));
       acceso = editar;
+    } else if (action.equalsIgnoreCase("editarGimnasio")) {
+      request.setAttribute("codgim", request.getParameter("id"));
+      acceso = editarGimnasio;
     } else if (action.equalsIgnoreCase("actualizar")) {
       id = Integer.parseInt(request.getParameter("txtid"));
       String dni = request.getParameter("txtDni");
@@ -78,11 +106,29 @@ public class Controlador extends HttpServlet {
       p.setGimPre(gimPre);
       dao.editar(p);
       acceso = listar;
+    } else if (action.equals("Actualizar Gimnasio")) {
+      id = Integer.parseInt(request.getParameter("txtid"));
+      String nomGim = request.getParameter("txtNomGim");
+      String dirGim = request.getParameter("txtDirGim");
+      String horGim = request.getParameter("txtHorGim");
+      String claGim = request.getParameter("txtClaGim");
+      g.setCodGim(id);
+      g.setNomGim(nomGim);
+      g.setDirGim(dirGim);
+      g.setHorGim(horGim);
+      g.setClaGim(claGim);
+      daoGim.editar(g);
+      acceso = listarGimnasioAdmin;
     } else if (action.equalsIgnoreCase("eliminar")) {
       id = Integer.parseInt(request.getParameter("id"));
       p.setId(id);
       dao.eliminar(id);
       acceso = listar;
+    } else if (action.equalsIgnoreCase("eliminarGimnasio")) {
+      id = Integer.parseInt(request.getParameter("id"));
+      g.setCodGim(id);
+      daoGim.eliminar(id);
+      acceso = listarGimnasioAdmin;
     }
     RequestDispatcher vista = request.getRequestDispatcher(acceso);
     vista.forward(request, response);

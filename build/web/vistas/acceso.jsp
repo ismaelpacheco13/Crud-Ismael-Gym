@@ -44,7 +44,7 @@
     } else {
       icono = "<i class=\"material-icons teal-text large\">lock_open</i>";
       mensaje = "<p>Acceso permitido a la aplicación.</p>"; // candado abierto
-      enlace = "indexp.jsp";
+      enlace = "../Controlador?accion=listarGimnasio";
     };
     %>
     <div class="container">

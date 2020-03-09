@@ -1,8 +1,8 @@
 
 <%@page import="java.util.Iterator"%>
-<%@page import="Modelo.Persona"%>
+<%@page import="Modelo.Gimnasio"%>
 <%@page import="java.util.List"%>
-<%@page import="ModeloDAO.PersonaDAO"%>
+<%@page import="ModeloDAO.GimnasioDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,8 +18,8 @@
             </nav>
         </div>
         <div class="container text-white">
-            <a class="btn btn-success" href="Controlador?accion=agregar">Agregar Nuevo</a>
-            <a class="btn btn-success" href="Controlador?accion=listarGimnasioAdmin">Lista Gimnasios</a>
+            <a class="btn btn-success" href="Controlador?accion=agregarGimnasio">Agregar Nuevo Gimnasio</a>
+            <a class="btn btn-success" href="Controlador?accion=listar">Lista Socios</a>
             <a class="btn btn-primary" href="index.jsp">Cerrar sesión</a>
             <br>
             <br>
@@ -27,30 +27,32 @@
                 <thead class="text-center">
                     <tr>
                         <th>ID</th>
-                        <th>DNI</th>
-                        <th>NOMBRES</th>
-                        <th>GIMNASIO PREFERIDO</th>
+                        <th>NOMBRE</th>
+                        <th>DIRECCIÓN</th>
+                        <th>HORARIO</th>
+                        <th>CLASES</th>
                         <th>ACCIONES</th>
                     </tr>
                 </thead>
                 <%
-                    PersonaDAO dao = new PersonaDAO();
-                    List<Persona>lista = dao.listar();
-                    Iterator<Persona>iter = lista.iterator();
-                    Persona per = null;
+                    GimnasioDAO dao = new GimnasioDAO();
+                    List<Gimnasio>lista = dao.listar();
+                    Iterator<Gimnasio>iter = lista.iterator();
+                    Gimnasio gim = null;
                     while (iter.hasNext()) {
-                      per = iter.next();
+                      gim = iter.next();
                     
                 %>
                 <tbody class="text-center">
                     <tr>
-                        <td><%= per.getId() %></td>
-                        <td><%= per.getDni() %></td>
-                        <td><%= per.getNombre()%></td>
-                        <td><%= per.getGimPreString()%></td>
+                        <td><%= gim.getCodGim() %></td>
+                        <td><%= gim.getNomGim() %></td>
+                        <td><%= gim.getDirGim() %></td>
+                        <td><%= gim.getHorGim() %></td>
+                        <td><%= gim.getClaGim() %></td>
                         <td>
-                            <a class="btn btn-warning text-white" href="Controlador?accion=editar&id=<%= per.getId() %>">Editar</a>
-                            <a class="btn btn-danger" href="Controlador?accion=eliminar&id=<%= per.getId() %>">Eliminar</a>
+                            <a class="btn btn-warning text-white" href="Controlador?accion=editarGimnasio&id=<%= gim.getCodGim()%>">Editar</a>
+                            <a class="btn btn-danger" href="Controlador?accion=eliminarGimnasio&id=<%= gim.getCodGim()%>">Eliminar</a>
                         </td>
                     </tr>
                     <%}%>

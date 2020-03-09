@@ -2,27 +2,62 @@ package Modelo;
 
 public class Gimnasio {
 
-  private int id;
-  private String name;
-
-  public Gimnasio(int id, String name) {
-    this.id = id;
-    this.name = name;
+  private int codGim;
+  private String nomGim;
+  private String dirGim;
+  private String horGim;
+  private String claGim;
+  
+  public Gimnasio() {
+    
   }
 
-  public int getId() {
-    return id;
+  public Gimnasio(int codGim, String nomGim, String dirGim, String horGim, String claGim) {
+    this.codGim = codGim;
+    this.nomGim = nomGim;
+    this.dirGim = dirGim;
+    this.horGim = horGim;
+    this.claGim = claGim;
   }
 
-  public void setId(int id) {
-    this.id = id;
+  public int getCodGim() {
+    return codGim;
   }
 
-  public String getName() {
-    return name;
+  public void setCodGim(int codGim) {
+    this.codGim = codGim;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public String getNomGim() {
+    return nomGim;
   }
+
+  public void setNomGim(String nomGim) {
+    this.nomGim = nomGim;
+  }
+
+  public String getDirGim() {
+    return dirGim;
+  }
+
+  public void setDirGim(String dirGim) {
+    this.dirGim = dirGim;
+  }
+
+  public String getHorGim() {
+    return horGim;
+  }
+
+  public void setHorGim(String horGim) {
+    this.horGim = horGim;
+  }
+
+  public String getClaGim() {
+    return claGim;
+  }
+
+  public void setClaGim(String claGim) {
+    this.claGim = claGim;
+  }
+  
 }
