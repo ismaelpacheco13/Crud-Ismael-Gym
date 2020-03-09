@@ -4,6 +4,10 @@
     Author     : ismael
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -28,14 +32,26 @@
                     <input class="form-control" type="text" name="txtNom"><br>
                     <div class="form-group">
                       <label for="GimnasioPreferido">Gimnasio Preferido</label>
-                      <select class="form-control" id="GimnasioPreferido">
-                        <c:forEach items="${listCategory}" var="category">
-                          <option value="${category.id}"
-                        <c:if test="${category.id eq selectedCatId}">selected="selected"</c:if>
-                        >
-                        ${category.name}
-                        </option>
-                      </c:forEach>
+                      <select class="form-control" id="GimnasioPreferido" name="intGimPre">
+                        <option value="-1">Selecciona un gimnasio</option>
+                        <% 
+                        Connection con;
+                        try {
+                          String sql="select * from gimnasio";
+                            Class.forName("com.mysql.jdbc.Driver");
+                            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ismaelgym", "root", "");
+                            Statement stm = con.createStatement();
+                            ResultSet rs = stm.executeQuery(sql);
+                            while (rs.next()) {
+                              %>
+                              <option value="<%=rs.getInt("CodGim") %>"><%=rs.getString("NomGim") %></option>
+                              <%
+                            }
+                          } catch (Exception e) {
+                            System.err.println("Error" + e);
+                          }
+                        
+                        %>
                       </select>
                     </div>
                     <input class="btn btn-primary" type="submit" name="accion" value="Agregar"><br>

@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `ismaelgym`.`gimnasio` (
   `CodGim` INT NOT NULL AUTO_INCREMENT,
   `NomGim` VARCHAR(45) NOT NULL,
   `DirGim` VARCHAR(60) NOT NULL,
-  `HorGim` VARCHAR(5) NOT NULL,
+  `HorGim` VARCHAR(11) NOT NULL,
   `ClaGim` VARCHAR(60) NOT NULL,
   PRIMARY KEY (`CodGim`))
 ENGINE = InnoDB;
@@ -34,8 +34,24 @@ CREATE TABLE IF NOT EXISTS `ismaelgym`.`persona` (
   `Id` INT NOT NULL AUTO_INCREMENT,
   `DNI` CHAR(9) NOT NULL,
   `Nombres` VARCHAR(60) NOT NULL,
-  PRIMARY KEY (`Id`))
+  `GimPre` INT NOT NULL,
+  PRIMARY KEY (`Id`),
+  FOREIGN KEY (`GimPre`) REFERENCES `gimnasio` (`CodGim`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+INSERT INTO gimnasio VALUES (NULL,'El Calvario','C/ Frenesi Nº 17','08:00-23:00','Crossfit, Musculación'),
+						   (NULL,'La Rosaleda','C/ Marte Nº 09','09:00-22:00','Spinning, Aerobic'),
+						   (NULL,'Gold Gym','C/ Santa Monica Nº 01','08:00-23:00','Halterofilia, Musculación'),
+						   (NULL,'Arnold','C/ Ventali Nº 04','10:00-23:00','Clases orientadas'),
+						   (NULL,'Parlero','C/ Mariana Nº 20','08:00-23:00','Musculación');
+
+INSERT INTO persona VALUES (NULL,'75902166A','Pedro Garcia'),
+						   (NULL,'69382199T','Juan Alvarado'),
+						   (NULL,'89265811Z','Alfredo Martinez'),
+						   (NULL,'72087688P','Martina Fernandez'),
+						   (NULL,'89673688Y','Jorge Tabet');
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

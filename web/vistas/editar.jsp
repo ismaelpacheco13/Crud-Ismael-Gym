@@ -4,6 +4,10 @@
     Author     : ismael
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="Modelo.Persona"%>
 <%@page import="ModeloDAO.PersonaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,6 +38,30 @@
                     Nombres: <br>
                     <input class="form-control" type="text" name="txtNom" value="<%= p.getNombre()%>"><br>
                     <input type="hidden" name="txtid" value="<%= p.getId()%>">
+                    <div class="form-group">
+                      <label for="GimnasioPreferido">Gimnasio Preferido</label>
+                      <select class="form-control" id="GimnasioPreferido" name="intGimPre">
+                        <option value="-1">Selecciona un gimnasio</option>
+                        <% 
+                        Connection con;
+                        try {
+                          String sql="select * from gimnasio";
+                            Class.forName("com.mysql.jdbc.Driver");
+                            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ismaelgym", "root", "");
+                            Statement stm = con.createStatement();
+                            ResultSet rs = stm.executeQuery(sql);
+                            while (rs.next()) {
+                              %>
+                              <option value="<%=rs.getInt("CodGim") %>"><%=rs.getString("NomGim") %></option>
+                              <%
+                            }
+                          } catch (Exception e) {
+                            System.err.println("Error" + e);
+                          }
+                        
+                        %>
+                      </select>
+                    </div>
                     <input class="btn btn-primary" type="submit" name="accion" value="Actualizar"><br>
                 </form>
             </div> 

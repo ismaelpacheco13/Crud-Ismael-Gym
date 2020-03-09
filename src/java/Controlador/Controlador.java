@@ -58,8 +58,10 @@ public class Controlador extends HttpServlet {
     } else if (action.equals("Agregar")) {
       String dni = request.getParameter("txtDni");
       String nombre = request.getParameter("txtNom");
+      int gimPre = Integer.parseInt(request.getParameter("intGimPre"));
       p.setDni(dni);
       p.setNombre(nombre);
+      p.setGimPre(gimPre);
       dao.agregar(p);
       acceso = listar;
     } else if (action.equalsIgnoreCase("editar")) {
@@ -69,9 +71,11 @@ public class Controlador extends HttpServlet {
       id = Integer.parseInt(request.getParameter("txtid"));
       String dni = request.getParameter("txtDni");
       String nombre = request.getParameter("txtNom");
+      int gimPre = Integer.parseInt(request.getParameter("intGimPre"));
       p.setId(id);
       p.setDni(dni);
       p.setNombre(nombre);
+      p.setGimPre(gimPre);
       dao.editar(p);
       acceso = listar;
     } else if (action.equalsIgnoreCase("eliminar")) {
