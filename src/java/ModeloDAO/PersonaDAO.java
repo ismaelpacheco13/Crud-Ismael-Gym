@@ -66,7 +66,7 @@ public class PersonaDAO implements CRUD {
 
   @Override
   public boolean editar(Persona per) {
-    String sql = "update persona set DNI='"+per.getDni()+"',Nombres='"+per.getNombre()+"'where Id="+per.getId();
+    String sql = "update persona set DNI='"+per.getDni()+"',Nombres='"+per.getNombre()+"', GimPre='"+per.getGimPre()+"' where Id="+per.getId();
     try {
       con = cn.getConnection();
       ps = con.prepareStatement(sql);

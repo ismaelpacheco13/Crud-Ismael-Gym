@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ismael/Escritorio/Programación/NetBeans%20Java/Crud-Ismael-Gym/web/vistas/editar.jsp</file>
-            <file>file:/home/ismael/Escritorio/Programación/NetBeans%20Java/Crud-Ismael-Gym/web/vistas/listar.jsp</file>
-            <file>file:/home/ismael/Escritorio/Programación/NetBeans%20Java/Crud-Ismael-Gym/web/index.jsp</file>
-            <file>file:/home/ismael/Escritorio/Programación/NetBeans%20Java/Crud-Ismael-Gym/web/vistas/agregar.jsp</file>
+            <file>file:/home/alumnoismael/NetBeansProjects/Crud-Ismael-Gym/web/vistas/agregar.jsp</file>
+            <file>file:/home/alumnoismael/NetBeansProjects/Crud-Ismael-Gym/src/java/Config/Conexion.java</file>
+            <file>file:/home/alumnoismael/NetBeansProjects/Crud-Ismael-Gym/src/java/Modelo/Persona.java</file>
+            <file>file:/home/alumnoismael/NetBeansProjects/Crud-Ismael-Gym/src/java/ModeloDAO/PersonaDAO.java</file>
+            <file>file:/home/alumnoismael/NetBeansProjects/Crud-Ismael-Gym/web/vistas/editar.jsp</file>
+            <file>file:/home/alumnoismael/NetBeansProjects/Crud-Ismael-Gym/src/java/Controlador/Controlador.java</file>
+            <file>file:/home/alumnoismael/NetBeansProjects/Crud-Ismael-Gym/src/java/Modelo/Gimnasio.java</file>
         </group>
     </open-files>
 </project-private>
