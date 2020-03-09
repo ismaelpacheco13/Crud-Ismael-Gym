@@ -4,9 +4,9 @@
 Crud para la administración manual de los socios del gimnasio ficticio Ismael Gym's como complemento de la web de Lenguaje De Marcas.
 
 ## Partes del CRUD
-Al entrar a la web se abrirá el index.jsp, el cual contiene unicamente un botón para acceder al listado de socios.
+Al entrar a la web se abrirá el index.jsp, el cual contiene un apartado para hacer login mediante usuario y contraseña.
 
-<img src="lista.png" alt="Lista Ismael Gym's">
+<img src="imagenesGitHub/login.png" alt="Login Ismael Gym's">
 
 Dentro de esta lista tendremos varias opciones.
 
