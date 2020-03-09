@@ -8,16 +8,37 @@
         <title>Crud Ismael Gym's</title>
     </head>
     <body style="background-image: url(imagenes/fondo.jpg);">
-        <div id="navbar" style="height: 6px; margin-bottom: 65px;">
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-secondary">
-                <img src="imagenes/logoIsmaelMod.png" style="width: 150px; height: 52.65px;" alt="">
-            </nav>
+      <div id="navbar" style="height: 6px; margin-bottom: 65px;">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-secondary">
+          <img src="imagenes/logoIsmaelMod.png" style="width: 150px; height: 52.65px;" alt="">
+        </nav>
+      </div>
+      <div class="container">
+        <div class="row"></div>
+        <div class="row text-white">
+          <div class="row col m3"></div>
+          <div class="col m6 card-panel grey lighten-5">
+            <h5 class="center">Control de acceso</h5>
+            <form method="post" action="vistas/acceso.jsp">
+              <div class="input-field">
+                <i class="material-icons prefix">account_circle</i>
+                <input type="text" name="usuario" id="usuario" required>
+                <label for="usuario">Usuario</label>
+              </div>
+              <div class="input-field">
+                <i class="material-icons prefix">lock</i>
+                <input type="password" name="clave" id="clave" required>
+                <label for="clave">Contraseña</label>
+              </div>
+              <p class="center"><button class="btn waves-effect waves-light center" type="submit" name="aceptar">
+                  Aceptar
+                  <i class="material-icons">check_circle</i>
+                </button></p>
+              <br>
+            </form>
+          </div>
         </div>
-        <br>
-        <br>
-        <div class="container">
-            <a class="btn btn-success btn-lg" href="Controlador?accion=listar">Listar Persona</a>
-        </div>
+      </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

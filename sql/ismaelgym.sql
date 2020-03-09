@@ -47,11 +47,30 @@ INSERT INTO gimnasio VALUES (NULL,'El Calvario','C/ Frenesi Nº 17','08:00-23:00
 						   (NULL,'Arnold','C/ Ventali Nº 04','10:00-23:00','Clases orientadas'),
 						   (NULL,'Parlero','C/ Mariana Nº 20','08:00-23:00','Musculación');
 
-INSERT INTO persona VALUES (NULL,'75902166A','Pedro Garcia'),
-						   (NULL,'69382199T','Juan Alvarado'),
-						   (NULL,'89265811Z','Alfredo Martinez'),
-						   (NULL,'72087688P','Martina Fernandez'),
-						   (NULL,'89673688Y','Jorge Tabet');
+INSERT INTO persona VALUES (NULL,'75902166A','Pedro Garcia', 1),
+						   (NULL,'69382199T','Juan Alvarado', 3),
+						   (NULL,'89265811Z','Alfredo Martinez', 4),
+						   (NULL,'72087688P','Martina Fernandez', 5),
+						   (NULL,'89673688Y','Jorge Tabet', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `acceso`
+--
+
+CREATE TABLE IF NOT EXISTS `acceso` (
+  `usuario` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `clave` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `acceso`
+--
+
+INSERT INTO `acceso` (`usuario`, `clave`) VALUES
+('admin', '123456'),
+('ismael', 'ismael13');
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
